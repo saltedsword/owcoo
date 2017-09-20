@@ -1,8 +1,6 @@
 'use strict';
 import Koa from 'koa';
 const app = new Koa();
-import convert from 'koa-convert';
-import json from 'koa-json';
 import onerror from 'koa-onerror';
 import bodyparser from 'koa-bodyparser';
 import logger from 'koa-logger';
