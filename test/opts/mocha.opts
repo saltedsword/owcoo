@@ -1,0 +1,6 @@
+--recursive
+--growl
+--reporter spec
+--timeout 100000
+--slow 2000
+--compilers js:babel-core/register
