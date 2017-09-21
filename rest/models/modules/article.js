@@ -102,7 +102,7 @@ ArticleSchema.statics = {
             articles = articles.map(article => ({
                 _id: article._id,
                 title: article.title,
-                simpleTitle: article.title.length > 20 ? article.title.substring(0, 18) + '...' : article.title,
+                simpleTitle: article.title.length > 16 ? article.title.substring(0, 15) + '...' : article.title,
                 date: moment(article.createAt).format('MM-DD'),
             }))
             articleList.articles = articles;
