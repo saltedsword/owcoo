@@ -8,33 +8,6 @@ export default async (ctx, next) => {
   for (let i=0; i<noFilters.length; i++) {
     if (ctx.url === noFilters[i]) return await next();
   }
-  // // 操作权限
-  // let user = ctx.session.user;
-  // user = await UserModel.findForGroup(user._id);
-  
-  // let options = user.userGroup.optionPrivileges;
-  // if (!option || !options || options.length == 0 || !_.includes(options, option)) {
-  //   ctx.noPrivileges();
-  //   return false;
-  // }
-  // if (arguments.length === 2)
-  //   return true;
-  // // 具体的栏目权限 (有些操作不涉及栏目，所以column可为空)
-  // let columns = user.userGroup.columnPrivileges;
-  // if (!column || column.length == 0 || !columns || columns.length == 0) {
-  //   ctx.noPrivileges();
-  //   return false;
-  // }
-  // // 栏目可以是单个 也可以是 数组
-  // if (!(column instanceof Array)) {
-  //   if (_.includes(columns, column)) return true;
-  // } else {
-  //   // 是数组时，只要其中一个元素满足条件，就算通过
-  //   for (let i=0; i<column.length; i++) {
-  //     if (_.includes(columns, column[i])) return true;
-  //   }
-  // }
-  // ctx.noPrivileges();
 
   const user = await UserModel.findById(ctx.uid);
   if (!user.userGroup) return ctx.noPrivileges();
